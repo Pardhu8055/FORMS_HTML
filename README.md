@@ -1,5 +1,5 @@
 # FORMS_HTML
-General form with validation using tags 
+General form with validation using tags and CSS
 
 **2 Forms**
     *1->testing case2.html         -------> Consists of General Html form with tag validations, basic CSS & without Java Script
