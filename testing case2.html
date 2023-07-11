@@ -1,0 +1,139 @@
+<html>
+<head>
+	<style>
+	
+	</style>
+</head>
+	
+	<body>
+	<script>
+            var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    
+            function validate(){
+                
+                var id = document.forms["myform"]["id"].value;
+                var name = document.forms["myform"]["name"].value;
+                var dob = document.forms["myform"]["dob"].value;
+                var doj = document.forms["myform"]["doj"].value;
+                var phoneno = document.forms["myform"]["phoneno"].value;
+                var Email = document.forms["myform"]["email"].value;
+                
+    
+                if(isNaN(id) || id < 500000 || id > 999999 || id == "" || id == null){
+                    
+                    swal("Invalid ID!", "Enter Valid 6 digit ID \n ID should start with 5", "warning");
+                    return false; 
+                }
+                else if( name == "" || name == null || !/^[a-zA-Z]*$/g.test(name) || name.length >25){
+                    swal("Invalid Name Type","Name cannot be empty \n Name should not have any special characters \n Name should not exceed of length 25 ","warning");
+                    return false;
+                }else if (document.getElementById('male').checked == false && document.getElementById('female').checked == false){
+                    swal("Select Gender!!", "You must select male or female", "warning");
+                    
+                    return false;
+                }
+                else if (dob == ""|| dob == null){
+                    swal("Enter a date of birth!!", "Date of birth can't be empty", "warning");
+                    return false;
+                }
+                else if (doj == ""|| doj == null){
+                    swal("Enter a date of join!!", "Date of join can't be empty", "warning");
+                    return false;
+                }
+                else if (phoneno == "" || phoneno == null || isNaN(phoneno) || phoneno.length > 10 || phoneno.length < 10 ){
+                    swal("Invalid Contact number!", "Enter a valid contact Number", "warning");
+                    
+                    return false;
+                }
+                else if (Email == "" || Email == null){
+                    swal("Enter a valid Email address");
+                    return false;
+                }else{
+                    swal("Registered Successfully!", "Faculty Registration was successful!!", "success");
+                    return false;
+                }
+                
+                
+            }
+        </script>
+	
+	<form action="/action_page.ph" method="post" name="StudentRegistration" onSubmit="return(validate());">
+
+	<table cellpadding="3" width="25%" bgcolor="yellow" align="center" cellspacing="2">
+	
+	<tr>
+	<td colspan=2>
+	<center><font size=4><b>Registration Forms</b></font></center>
+	</td>
+	</tr>
+	
+	<tr>
+	<td colspan=2>
+	<center><font size=4><b>Who Are You?</b></font></center>
+	</td>
+	</tr>
+	
+	<tr>
+	<td><label for="username">Name:</label></td>
+	<td><input type="text" name="username" placeholder="Enter Your Name" size="30" required></td><br>
+	</tr>
+	
+	<tr>
+	<td>Email:</td>
+	<td><input type="mail" placeholder="Enter Your Email" size="30" required></td><br>
+	</tr>
+	
+	<tr>
+	<td>Age:</td>
+	<td><input type="number" placeholder="Enter Your Age" size="30" required></td><br>
+	</tr>
+	
+	<tr>
+	<td>Gender:</td>
+	<td><select>
+	<option value="Male" size="30">Male</option>
+	<option value="Female" size="30">Female</option>
+	<option value="Other" size="30">Other</option>
+	</select required></td><br>
+	</tr>
+	
+	<tr>
+	<td>Programing Approache:</td>
+		<td><input type="radio" >
+		<label>front-End</label><br>
+		<input type="radio">
+		<label>back-End</label><br>
+		<input type="radio">
+		<label>full-Satck</label></td>
+	</tr>	
+	
+	<br>
+	
+	<tr>	
+	<td>Your Favorite Programing Language:</td>
+				<td><input type="checkbox">
+				<label>C/C++</label><br>
+				<input type="checkbox">
+				<label>Pascal/Delphi</label><br>
+				<input type="checkbox">
+				<label>java</label><br>
+				<input type="checkbox">
+				<label>javaScript</label><br>
+				<input type="checkbox">
+				<label>python</label></td><br>
+	</tr>	
+
+		<tr>
+		<td>Summary:</td>
+		<td><input type="text" size="30"></td><br>	
+		</tr>
+		
+		<tr>
+		<td colspan=2>
+		<center><input type="submit" value="Submit">
+		</center></td>
+		</tr>
+	</form>
+	</table>
+	</body>
+</html>
