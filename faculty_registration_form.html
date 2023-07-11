@@ -1,0 +1,138 @@
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Faculty Registration Form
+        </title>
+        <link rel="stylesheet" href="faculty_registration_form.css" >
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        
+        
+    </head>
+    <style>
+        .wrapper .form .input_field a{
+            text-decoration: none;
+        }
+    </style>
+
+    
+
+
+    <body>
+
+        <script>
+            var format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    
+            function validate(){
+                
+                var id = document.forms["myform"]["id"].value;
+                var name = document.forms["myform"]["name"].value;
+                var dob = document.forms["myform"]["dob"].value;
+                var doj = document.forms["myform"]["doj"].value;
+                var phoneno = document.forms["myform"]["phoneno"].value;
+                var Email = document.forms["myform"]["email"].value;
+                
+    
+                if(isNaN(id) || id < 500000 || id > 999999 || id == "" || id == null){
+                    
+                    swal("Invalid ID!", "Enter Valid 6 digit ID \n ID should start with 5", "warning");
+                    return false; 
+                }
+                else if( name == "" || name == null || !/^[a-zA-Z]*$/g.test(name) || name.length >25){
+                    swal("Invalid Name Type","Name cannot be empty \n Name should not have any special characters \n Name should not exceed of length 25 ","warning");
+                    return false;
+                }else if (document.getElementById('male').checked == false && document.getElementById('female').checked == false){
+                    swal("Select Gender!!", "You must select male or female", "warning");
+                    
+                    return false;
+                }
+                else if (dob == ""|| dob == null){
+                    swal("Enter a date of birth!!", "Date of birth can't be empty", "warning");
+                    return false;
+                }
+                else if (doj == ""|| doj == null){
+                    swal("Enter a date of join!!", "Date of join can't be empty", "warning");
+                    return false;
+                }
+                else if (phoneno == "" || phoneno == null || isNaN(phoneno) || phoneno.length > 10 || phoneno.length < 10 ){
+                    swal("Invalid Contact number!", "Enter a valid contact Number", "warning");
+                    
+                    return false;
+                }
+                else if (Email == "" || Email == null){
+                    swal("Enter a valid Email address");
+                    return false;
+                }else{
+                    swal("Registered Successfully!", "Faculty Registration was successful!!", "success");
+                    return false;
+                }
+                
+                
+            }
+        </script>
+
+        <div class="wrapper">
+
+            
+            <div class="form">
+                <h1 class="title">
+                    Faculty Registration Form
+                </h1>
+
+                <form class="validation" name="myform" onsubmit="return validate()" >
+                    <div class="input_field">
+
+                        <label for="id">ID : </label>
+                        <input class="input" type="text" id="id" name="id" >
+
+                    </div>
+
+                    <div class="input_field">
+
+                        <label for="name">Name : </label>
+                        <input class="input" type="text" id="name" name="name" >
+
+                        
+                    </div>
+                    <div class="input_field">
+                        <label for="gender">Gender : </label>
+                        <input type="radio" id="male" name="gender" value="male" >
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female" >
+                        <label for="female">Female</label>
+                    </div>
+
+                    <div class="input_field">  
+                        <label for="dob">Faculty DOB : </label>
+                        <input class="input" type="date" id="dob" name="dob"  >
+                    </div>
+                    
+                    <div class="input_field">  
+                        <label for="doj">Faculty Date Of Joining : </label>
+                        <input class="input" type="date" id="doj" name="doj" >
+                    </div>
+
+                    <div class="input_field">
+                        <label for="phoneno">Phone Number : </label>
+                        <input class="input" type="text" id="phoneno" name="phoneno" >
+                    </div>
+
+                    <div class="input_field">
+                        <label for="email">Email : </label>
+                        <input class="input" type="email" id="email" name="email">
+                    </div>
+                    <div class="input_field">
+                        <button type="submit" class="btn">Submit</button>
+                    </div>
+                
+                </form>
+            </div>
+
+
+        </div>
+
+    </body>
+</html>
